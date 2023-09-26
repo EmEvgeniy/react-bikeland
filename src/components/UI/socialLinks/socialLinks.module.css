@@ -13,6 +13,16 @@
 	border-radius: 50%;
 	color: #000;
 }
+.SocialLinks_item:hover div svg{
+	fill: red;
+}
+.SocialLinks_item div svg {
+	width: 25px;
+	height: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 @media (max-width: 768px) {
 	.SocialLinks {
 		display: none;

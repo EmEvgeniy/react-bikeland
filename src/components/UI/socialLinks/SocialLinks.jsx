@@ -6,19 +6,19 @@ import classes from "./socialLinks.module.css";
 
 const socialIcons = [
 	{
-		icon: <FacebookIcon className='icon' />,
+		icon: <FacebookIcon />,
 		link: "https://www.facebook.com/bikeland.uz/",
 	},
 	{
-		icon: <InstagramIcon className='icon' />,
+		icon: <InstagramIcon />,
 		link: "https://www.instagram.com/bikeland.uz/",
 	},
 	{
-		icon: <YoutubeIcon className='icon' />,
+		icon: <YoutubeIcon />,
 		link: "https://www.youtube.com/@BikelandUz",
 	},
 	{
-		icon: <TelegramIcon className='icon' />,
+		icon: <TelegramIcon />,
 		link: "https://t.me/BikelandUz_bot",
 	},
 ];
@@ -26,8 +26,11 @@ const socialIcons = [
 const SocialLinks = () => {
 	return (
 		<div className={classes.SocialLinks}>
-			{socialIcons.map((item, index) => (
-				<a key={index} href={item.link} className={classes.SocialLinks_item}>
+			{socialIcons.map((item) => (
+				<a
+					key={item.link}
+					href={item.link}
+					className={classes.SocialLinks_item}>
 					{item.icon}
 				</a>
 			))}

@@ -1,31 +1,41 @@
-import classes from "./callPopup.module.scss";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import classes from "./callPopup.module.css";
 import { usePostFormMutation } from "../../../store/middleWares/FormApi";
 import Container from "../../container/Container";
+import { changeCallStatus } from "../../../store/slices/callSlice";
 
 const CallPopup = () => {
 	const [num, setNum] = useState("");
 	const [postFormMutation] = usePostFormMutation();
 	const callStatus = useSelector((state) => state.call.value);
-	const [active, setACtive] = useState(false);
+	const dispatch = useDispatch();
+
+	const [active, setActive] = useState(false);
+
 	const handleSubmit = async () => {
 		const data = { phone_number: num };
 
-		if (data && num) {
+		if (num) {
 			await postFormMutation(data).then((res) => console.log(res));
-			setACtive(false);
+			setNum(""); // Clear input after submission
+			dispatch(changeCallStatus(false)); // Close the popup
 		} else {
-			setACtive(true);
+			setActive(true);
 		}
 	};
+
+	const handleClose = () => {
+		dispatch(changeCallStatus(false));
+	};
+
+	const handleInputChange = (e) => {
+		setNum(e.target.value);
+		setActive(false); // Reset the error state on input change
+	};
+
 	return (
-		<div
-			className={
-				callStatus
-					? `${classes.CallPopup} ${classes.active}`
-					: `${classes.CallPopup}`
-			}>
+		<div className={`${classes.CallPopup} ${callStatus && classes.active}`}>
 			<Container>
 				<div className={classes.inner}>
 					<p className={classes.title}>
@@ -36,13 +46,15 @@ const CallPopup = () => {
 					<input
 						type='text'
 						placeholder='+998 90 999 99 99'
-						className={
-							active ? `${classes.input} ${classes.fail}` : `${classes.input}`
-						}
-						onChange={(e) => setNum(e.target.value)}
+						className={`${classes.input} ${active && classes.fail}`}
+						value={num}
+						onChange={handleInputChange}
 					/>
 					<span className={classes.btn} onClick={handleSubmit}>
 						Заказать звонок
+					</span>
+					<span className={classes.closeBtn} onClick={handleClose}>
+						Закрыть
 					</span>
 				</div>
 			</Container>

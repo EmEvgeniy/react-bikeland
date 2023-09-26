@@ -1,5 +1,4 @@
 import classes from "./homeVideoCompContent.module.css";
-import ReactIframe from "react-iframe";
 import { motion } from "framer-motion";
 
 const videoData = [
@@ -7,57 +6,36 @@ const videoData = [
 	"https://www.youtube.com/embed/BQtDFkTGjUg?si=BQtDFkTGjUg",
 	"https://www.youtube.com/embed/6iLMAhLIcG0?si=6iLMAhLIcG0",
 ];
+
+const createIframe = (url) => (
+	<motion.div
+		initial={{ opacity: 0 }}
+		whileInView={{ opacity: 1 }}
+		transition={{ duration: 0.3 }}
+		className={classes.inner_item}
+		key={url}>
+		<iframe
+			src={url}
+			title='Tashkent'
+			width='100%'
+			height='100%'
+			style={{ borderRadius: "15px", maxWidth: "100%" }}
+			loading='lazy'
+			frameBorder='0'></iframe>
+	</motion.div>
+);
+
 const HomeVideoCompContent = () => {
 	return (
 		<div className={classes.inner}>
-			<motion.div
+			{videoData.map(createIframe)}
+			<motion.a
+				href='https://www.youtube.com/@BikelandUz'
 				initial={{ opacity: 0 }}
 				whileInView={{ opacity: 1 }}
-				transition={{ duration: 0.3 }}
-				className={classes.inner_item1}>
-				<ReactIframe
-					url={videoData[0]}
-					width='100%'
-					height='300'
-					title='Tashkent'
-					styles={{ borderRadius: "15px" }}
-					loading='lazy'
-					frameBorder={0}
-				/>
-			</motion.div>
-			<motion.div
-				initial={{ opacity: 0 }}
-				whileInView={{ opacity: 1 }}
-				transition={{ duration: 0.3 }}
-				className={classes.inner_item2}>
-				<ReactIframe
-					url={videoData[1]}
-					width='100%'
-					height='100%'
-					title='Tashkent'
-					styles={{ borderRadius: "15px" }}
-					loading='lazy'
-					frameBorder={0}
-				/>
-
-				<ReactIframe
-					url={videoData[2]}
-					width='100%'
-					height='100%'
-					title='Tashkent'
-					loading='lazy'
-					styles={{ borderRadius: "15px" }}
-					frameBorder={0}
-				/>
-
-				<motion.a
-					href='https://www.youtube.com/@BikelandUz'
-					initial={{ opacity: 0 }}
-					whileInView={{ opacity: 1 }}
-					transition={{ duration: 0.3, delay: 0.2 }}>
-					Смотреть больше
-				</motion.a>
-			</motion.div>
+				transition={{ duration: 0.3, delay: 0.2 }}>
+				Смотреть больше
+			</motion.a>
 		</div>
 	);
 };

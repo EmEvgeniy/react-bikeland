@@ -6,6 +6,7 @@ import SeeAlsoComp from "../seeAlsoComp/SeeAlsoComp";
 import BuyComp from "./detailPopUpContent/buyComp/BuyComp";
 import { useDispatch, useSelector } from "react-redux";
 import { Container } from "@mui/material";
+import { setBasketStatus } from "../../../store/slices/basketSlice";
 
 export default function DetailsPopup() {
 	const value = useSelector((state) => state.basket.value);

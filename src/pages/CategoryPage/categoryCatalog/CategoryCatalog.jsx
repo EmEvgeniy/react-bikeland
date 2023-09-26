@@ -6,6 +6,7 @@ import Container from "../../../components/container/Container";
 import Card from "../../../components/UI/card/Card";
 import FilterComp from "../../../components/UI/filterComp/FilterComp";
 import EquipmentsTitle from "../../../components/UI/EquipmentsTitle/EquipmentsTitle";
+import { debounce } from "lodash";
 
 const categories = [
 	{ title: "МОТОЦИКЛЫ", link: "bikes", id: 1 },
@@ -26,6 +27,11 @@ const CategoryCatalog = ({ pathName }) => {
 	const [active, setActive] = useState(false);
 	const [title, setTitle] = useState("");
 	const value = useSelector((state) => state.category.value);
+
+	const setActiveDebounced = debounce((status) => {
+		setActive(status);
+	}, 300);
+
 	const { data: products = [], isSuccess } = useGetProductsQuery();
 	useEffect(() => {
 		if (categories.filter((el) => el.link === pathName).length) {
@@ -34,7 +40,7 @@ const CategoryCatalog = ({ pathName }) => {
 			setTitle("");
 		}
 	}, [pathName]);
-	console.log(products);
+
 	return (
 		<section className={classes.CategoryCatalog}>
 			<Container>
@@ -68,7 +74,9 @@ const CategoryCatalog = ({ pathName }) => {
 											? `${classes.btn} ${classes.active}`
 											: `${classes.btn}`
 									}>
-									<span onClick={() => setActive(true)}>Загрузить ещё</span>
+									<span onClick={() => setActiveDebounced(true)}>
+										Загрузить ещё
+									</span>
 								</div>
 							) : null}
 						</div>

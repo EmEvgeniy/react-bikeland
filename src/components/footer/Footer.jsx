@@ -5,8 +5,8 @@ import logo from "../../assets/logo.svg";
 import FooterFeedback from "./footerFeedback/FooterFeedback";
 import FooterNav from "./footerNav/FooterNav";
 import SocialMedia from "./socialMedia/SocialMedia";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const Footer = () => {
 	return (
@@ -14,7 +14,7 @@ const Footer = () => {
 			<Container>
 				<div className={classes.inner}>
 					<div className={classes.inner_top}>
-						<LazyLoadImage src={logo} alt='logo' effect="blur" />
+						<LazyLoadImage src={logo} alt='logo' effect='blur' loading='lazy' />
 						<FooterFeedback />
 					</div>
 					<FooterDetails />

@@ -54,6 +54,7 @@ const CardDetailPopup = () => {
 								src={value?.photos?.length ? value?.photos[0]?.photo_url : ""}
 								alt=''
 								effect='blur'
+								loading="lazy"
 							/>
 						)}
 					</div>

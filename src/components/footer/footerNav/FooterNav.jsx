@@ -23,14 +23,13 @@ const list = [
 const FooterNav = () => {
 	return (
 		<ul className={classes.FooterNav}>
-			{list.map((link, index) => (
-				<li key={index}>
+			{list.map((link) => (
+				<li key={link.title}>
 					<Link
 						to={
-							link.link !== "dealers" &&
-							link.link !== "delivery" &&
-							link.link !== "forEmployees" &&
-							link.link !== "blog"
+							!["dealers", "delivery", "forEmployees", "blog"].includes(
+								link.link
+							)
 								? `/categories/${link.link}`
 								: `/${link.link}`
 						}>
@@ -41,4 +40,5 @@ const FooterNav = () => {
 		</ul>
 	);
 };
+
 export default FooterNav;

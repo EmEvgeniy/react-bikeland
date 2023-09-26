@@ -12,14 +12,24 @@ const SearchInput = () => {
 	const [list, setList] = useState([]);
 	const [searchItem, setSearchItem] = useState("");
 	const dispatch = useDispatch();
+
+	const getListData = async (item) => {
+		try {
+			const response = await axios.get(
+				`https://api.it-test.uz/v1/products?title=${item}&status_id=4&page=1&size=50`
+			);
+			setList(response.data);
+		} catch (error) {
+			console.error("Error fetching data:", error);
+		}
+	};
+
+	const handleItemClick = (el) => {
+		dispatch(addCardItem(el));
+		dispatch(changeCardStatus(true));
+	};
+
 	useEffect(() => {
-		const getListData = async (item) => {
-			await axios
-				.get(
-					`https://api.it-test.uz/v1/products?title=${item}&status_id=4&page=1&size=50`
-				)
-				.then((res) => setList(res.data));
-		};
 		getListData(searchItem);
 	}, [searchItem]);
 
@@ -39,12 +49,8 @@ const SearchInput = () => {
 					searchItem ? `${classes.list} ${classes.active}` : `${classes.list}`
 				}>
 				{list?.items?.length ? (
-					list?.items?.map((el, index) => (
-						<p
-							key={index}
-							onClick={() =>
-								dispatch(addCardItem(el)) & dispatch(changeCardStatus(true))
-							}>
+					list.items.map((el, index) => (
+						<p key={index} onClick={() => handleItemClick(el)}>
 							{el.title}
 						</p>
 					))

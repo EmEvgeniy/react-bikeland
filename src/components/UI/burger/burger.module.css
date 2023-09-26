@@ -9,8 +9,9 @@
 	color: #fff;
 	font-size: 30px;
 	align-items: center;
-
-	@media (max-width: 768px) {
+}
+@media (max-width: 768px) {
+	.burger {
 		display: flex;
 	}
 }

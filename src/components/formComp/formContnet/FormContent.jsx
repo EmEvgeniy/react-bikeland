@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import classes from "./formContent.module.css";
 import Forminput from "./formInput/Forminput";
 import FormCheckBox from "./formCheckBox/FormCheckBox";
@@ -31,6 +31,26 @@ const FormContent = () => {
 		}
 	};
 
+	const handleSetName = useCallback((value) => {
+		setName(value);
+		setActive(false);
+	}, []);
+
+	const handleSetNum = useCallback((value) => {
+		setNum(value);
+		setActive2(false);
+	}, []);
+
+	const handleSetCity = useCallback((value) => {
+		setCity(value);
+		setActive3(false);
+	}, []);
+
+	const handleSetKnown = useCallback((value) => {
+		setKnown(value);
+		setActive4(false);
+	}, []);
+
 	return (
 		<div className={classes.FormContent}>
 			<p className={classes.title}>
@@ -38,24 +58,24 @@ const FormContent = () => {
 			</p>
 			<Forminput
 				title={"Как к вам обращаться?"}
-				fc={setName}
+				fc={handleSetName}
 				active={active}
 				placeholder='Ваше имя'
 			/>
 			<Forminput
 				title={"На какой номер вам перезвонить?"}
-				fc={setNum}
+				fc={handleSetNum}
 				active={active2}
 				placeholder='Введите номер +998'
 			/>
 			<Forminput
 				title={"Ваш город или регион?"}
-				fc={setCity}
+				fc={handleSetCity}
 				active={active3}
 				placeholder='Название города, региона'
 			/>
 			<p className={classes.sub_title}>Откуда узнали о нас?</p>
-			<FormCheckBox fn={setKnown} active={active4} />
+			<FormCheckBox fn={handleSetKnown} active={active4} />
 			<span className={classes.main_btn} onClick={handleSubmit}>
 				Заказать звонок
 			</span>
