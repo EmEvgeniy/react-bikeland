@@ -27,7 +27,7 @@ const FooterDetails = () => {
 				</ul>
 			</div>
 			<div className={classes.payment}>
-				<p>
+				<p className={classes.payment_title}>
 					<span>Принимаем оплату:</span>Наличными, через банковский перевод или
 					через платежные системы
 				</p>

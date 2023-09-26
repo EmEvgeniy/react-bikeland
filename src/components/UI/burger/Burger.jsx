@@ -10,7 +10,7 @@ const Burger = () => {
 
 	const handleClick = debounce(() => {
 		dispatch(changeBurgerStatus(!status));
-	}, 300);
+	}, 100);
 
 	return (
 		<div

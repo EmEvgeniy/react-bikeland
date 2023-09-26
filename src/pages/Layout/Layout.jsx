@@ -1,9 +1,10 @@
 import { Box, CircularProgress } from "@mui/material";
-import Header from "../../components/header/Header";
 import classes from "./layout.module.css";
-import { Outlet } from "react-router-dom";
-import { Suspense, lazy } from "react";
+import { Outlet, useLocation } from "react-router-dom";
+import { Suspense, lazy, useEffect } from "react";
 import Footer from "../../components/footer/Footer";
+import HeaderTop from "../../components/headerTop/HeaderTop";
+import HeaderBottom from "../../components/headerBottom/HeaderBottom";
 
 const CallStickyComp = lazy(() =>
 	import("../../components/UI/callStickyComp/CallStickyComp")
@@ -24,9 +25,15 @@ const CardDetailPopup = lazy(() =>
 	import("../../components/UI/cardDetailPopup/CardDetailPopup")
 );
 const Layout = () => {
+	const { pathname } = useLocation();
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [pathname]);
 	return (
 		<div className={classes.Layout}>
-			<Header />
+			<HeaderTop />
+			<HeaderBottom />
 			<main className={classes.main}>
 				<Suspense
 					fallback={

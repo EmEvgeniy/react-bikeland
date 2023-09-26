@@ -20,7 +20,7 @@ const Footer = () => {
 					<FooterDetails />
 					<FooterNav />
 					<SocialMedia />
-					<p>© Все права защищены. Bikeland.uz &amp; HAYAT CO LTD 2004-2023</p>
+					<p className={classes.btm_text}>© Все права защищены. Bikeland.uz &amp; HAYAT CO LTD 2004-2023</p>
 				</div>
 			</Container>
 		</footer>

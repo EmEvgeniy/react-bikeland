@@ -1,6 +1,7 @@
-import FormComp from "../../components/formComp/FormComp";
+
 import classes from "./forEmployees.module.css";
 import { motion } from "framer-motion";
+import FormComp2 from "./formComp2/FormComp2";
 
 const ForEmployees = () => {
 	return (
@@ -10,7 +11,7 @@ const ForEmployees = () => {
 			transition={{ delay: 0.3, duration: 1 }}
 			className={classes.ForEmployeesPage}>
 			<h1 className={classes.title}>РАБОТА В КОМАНДЕ BIKELAND.UZ</h1>
-			<FormComp />
+			<FormComp2 />
 		</motion.div>
 	);
 };

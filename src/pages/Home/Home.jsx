@@ -6,6 +6,7 @@ import HomeLocation from "./homeLocation/HomeLocation";
 import HomeVideoComp from "./homeVideoComp/HomeVideoComp";
 import { motion } from "framer-motion";
 const Home = () => {
+	
 	return (
 		<motion.div
 			initial={{ opacity: 0 }}

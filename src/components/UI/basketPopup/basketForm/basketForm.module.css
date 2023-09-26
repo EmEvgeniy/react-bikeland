@@ -5,8 +5,10 @@
 	justify-items: center;
 	gap: 20px;
 	width: 100%;
-
-	
+}
+.validation {
+	font-size: 18px;
+	color: #d51313;
 }
 .btn {
 	border-radius: 10px;

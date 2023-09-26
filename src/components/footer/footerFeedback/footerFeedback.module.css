@@ -13,30 +13,31 @@
 .FooterFeedback_item {
 	display: grid;
 	grid-template-rows: 1fr 0.3fr 0.5fr;
-	gap: 20px;
+	gap: 15px;
 	text-align: center;
-	align-items: center;
+	align-items: flex-start;
 	justify-items: center;
 	color: #fff;
 	max-width: 280px;
 }
 .title {
-	font-size: 30px;
-	font-weight: 700;
+	font-size: 23px;
+	font-weight: 900;
 }
 .text {
 	font-size: 18px;
+	font-weight: 400;
 }
 
 @media (max-width: 768px) {
 	.FooterFeedback_item img {
-		width: 40%;
-		height: 45px;
+		width: 70%;
+		/* height: 45px; */
 	}
 	.title {
-		font-size: 16px;
+		font-size: 20px;
 	}
 	.text {
-		font-size: 12px;
+		font-size: 16px;
 	}
 }

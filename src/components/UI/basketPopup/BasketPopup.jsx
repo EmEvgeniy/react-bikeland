@@ -17,6 +17,12 @@ const BasketPopup = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
+		if (!value.length) {
+			dispatch(setBasketStatus(false));
+		}
+	}, [value, dispatch]);
+
+	useEffect(() => {
 		const body = document.querySelector("body");
 		if (status) {
 			body.classList.add("hold");
@@ -62,7 +68,9 @@ const BasketPopup = () => {
 							<div className={classes.bottom}>
 								<div className={classes.info}>
 									<p>Цена товара:</p>
-									<p style={{ fontWeight: 600 }}>{el.price}</p>
+									<p style={{ fontWeight: 600 }}>
+										{el.uzb_price.toLocaleString("ru")} UZB
+									</p>
 								</div>
 								<div className={classes.counter}>
 									<span className={classes.plus} onClick={() => handlePlus(el)}>

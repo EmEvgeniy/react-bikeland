@@ -1,68 +1,102 @@
 /* .CategoryCatalog */
 .CategoryCatalog {
-  width: 100%;
+	width: 100%;
 }
 
 .CategoryCatalog .inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  gap: 0px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	width: 100%;
+	gap: 0px;
 }
 
 .CategoryCatalog h1 {
-  font-size: 30px;
-  padding: 0;
-  margin: 0;
+	font-size: 30px;
+	padding: 0;
+	margin: 0;
 }
-
+.added {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 40px;
+	align-items: center;
+	padding: 40px 0;
+}
+.added p {
+	font-size: 25px;
+	line-height: 1.2;
+	text-align: center;
+	width: 70%;
+}
+.added span {
+	border-radius: 7px;
+	background: #bb1d1e;
+	color: #fff;
+	padding: 10px 20px;
+	cursor: pointer;
+	user-select: none;
+	transition: all 0.2s ease;
+}
+.added span:hover {
+	transform: scale(1.05, 1.05);
+}
+.added span:active {
+	transform: scale(0.9, 0.9);
+}
 @media (max-width: 600px) {
-  .CategoryCatalog h1 {
-    font-size: 25px;
-  }
+	.CategoryCatalog h1 {
+		font-size: 25px;
+	}
+	.added p {
+		font-size: 20px;
+		line-height: 1.3;
+		text-align: center;
+		width: 100%;
+	}
 }
 
 .CategoryCatalog .content {
-  width: 100%;
+	width: 100%;
 }
 
 .CategoryCatalog .content_inner {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  align-items: center;
-  justify-items: center;
-  gap: 40px;
-  width: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	align-items: center;
+	justify-items: center;
+	gap: 40px;
+	width: 100%;
 }
 
 .CategoryCatalog .btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 40px 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 40px 0;
 }
 
 .CategoryCatalog .btn span {
-  padding: 10px 20px;
-  font-size: 18px;
-  border-radius: 110px;
-  background: #bb1d1e;
-  box-shadow: 0px 0px 30px 0px rgba(187, 29, 30, 0.3);
-  color: #fff;
-  cursor: pointer;
-  transition: all 0.2s ease;
+	padding: 10px 20px;
+	font-size: 18px;
+	border-radius: 110px;
+	background: #bb1d1e;
+	box-shadow: 0px 0px 30px 0px rgba(187, 29, 30, 0.3);
+	color: #fff;
+	cursor: pointer;
+	transition: all 0.2s ease;
 }
 
 .CategoryCatalog .btn span:hover {
-  transform: scale(1.1, 1.1);
+	transform: scale(1.1, 1.1);
 }
 
 .CategoryCatalog .btn span:active {
-  transform: scale(0.9, 0.9);
+	transform: scale(0.9, 0.9);
 }
 
 .CategoryCatalog .btn.active {
-  transform: scale(0);
+	transform: scale(0);
 }

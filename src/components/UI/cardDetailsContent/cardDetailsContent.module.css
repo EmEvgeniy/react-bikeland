@@ -1,99 +1,101 @@
 .CardDetailsContent {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 10px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	gap: 10px;
 }
 
 .CardDetailsContent .conf {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	gap: 10px;
 }
-
+.CardDetailsContent .conf p span {
+	margin-right: 10px;
+}
 .CardDetailsContent .title {
-  font-size: 24px;
-  font-weight: 600;
-  color: #bb1d1e;
+	font-size: 24px;
+	font-weight: 600;
+	color: #bb1d1e;
 }
 
 .CardDetailsContent .name {
-  font-size: 16px;
-  font-weight: 400;
+	font-size: 16px;
+	font-weight: 400;
 }
 
 .CardDetailsContent .price {
-  font-size: 20px;
-  font-weight: 600;
+	font-size: 20px;
+	font-weight: 600;
 }
 
 .CardDetailsContent .btns {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 20px;
-  padding: 10px 0;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 20px;
+	padding: 10px 0;
 }
 
 .CardDetailsContent .btns .btn {
-  border-radius: 10px;
-  background: #bb1d1e;
-  box-shadow: 0px 0px 15px 0px rgba(187, 29, 30, 0.25);
-  color: #fff;
-  font-size: 18px;
-  font-weight: 500;
-  padding: 10px 20px;
-  user-select: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
+	border-radius: 10px;
+	background: #bb1d1e;
+	box-shadow: 0px 0px 15px 0px rgba(187, 29, 30, 0.25);
+	color: #fff;
+	font-size: 18px;
+	font-weight: 500;
+	padding: 10px 20px;
+	user-select: none;
+	cursor: pointer;
+	transition: all 0.2s ease;
 }
 
 .CardDetailsContent .btns .btn:hover {
-  transform: scale(1.05, 1.05);
+	transform: scale(1.05, 1.05);
 }
 
 .CardDetailsContent .btns .btn:active {
-  transform: scale(0.9, 0.9);
+	transform: scale(0.9, 0.9);
 }
 
 .CardDetailsContent .icon {
-  width: 40px;
-  height: 40px;
-  background-color: #fff;
-  border-radius: 50%;
-  padding: 7px;
-  border: 1px solid #ddd;
-  font-size: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #bb1d1e;
-  user-select: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
+	width: 40px;
+	height: 40px;
+	background-color: #fff;
+	border-radius: 50%;
+	padding: 7px;
+	border: 1px solid #ddd;
+	font-size: 35px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #bb1d1e;
+	user-select: none;
+	cursor: pointer;
+	transition: all 0.2s ease;
 }
 
 .CardDetailsContent .icon.active {
-  color: #bb1d1e;
-  fill: #bb1d1e;
+	color: #bb1d1e;
+	fill: #bb1d1e;
 }
 
 .CardDetailsContent .icon:hover {
-  transform: scale(1.05, 1.05);
+	transform: scale(1.05, 1.05);
 }
 
 .CardDetailsContent .icon:active {
-  transform: scale(0.9, 0.9);
+	transform: scale(0.9, 0.9);
 }
 
 .CardDetailsContent .conf {
-  text-wrap: balance;
-  line-height: 1.5;
-  font-size: 16px;
-  padding: 20px 0;
-  user-select: none;
+	text-wrap: balance;
+	line-height: 1.5;
+	font-size: 16px;
+	padding: 20px 0;
+	user-select: none;
 }

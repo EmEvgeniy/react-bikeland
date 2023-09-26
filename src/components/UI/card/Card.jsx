@@ -22,6 +22,7 @@ const Card = ({ data }) => {
 	const favoriteItems = useSelector((state) => state.favorite.value);
 	const isItemInFavorite = favoriteItems.some((el) => el.id === data.id);
 	const [active, setActive] = useState(isItemInFavorite);
+	const [active2, setActive2] = useState(false);
 
 	useEffect(() => {
 		if (active) {
@@ -56,12 +57,20 @@ const Card = ({ data }) => {
 		<div className={classes.Card} onClick={handleDetailsClick}>
 			<div className={classes.top}>
 				<LazyLoadImage
-					src={data?.photos?.length ? data.photos[0].photo_url : ""}
+					src={
+						data?.photos?.length
+							? !active2
+								? data.photos[0].photo_url
+								: data.photos[1].photo_url
+							: ""
+					}
 					alt='bike'
 					effect='blur'
 					width={"100%"}
 					height={"100%"}
 					className={classes.img}
+					onMouseOver={() => setActive2(true)}
+					onMouseLeave={() => setActive2(false)}
 				/>
 				{data.tag ? <div className={classes.tag}>{data.tag}</div> : null}
 				<div
@@ -75,7 +84,9 @@ const Card = ({ data }) => {
 				<span className={classes.text}>
 					{data.description ? data?.description.slice(0, 90) : null}
 				</span>
-				<p className={classes.price}>{data.uzb_price}</p>
+				<p className={classes.price}>
+					{data.uzb_price.toLocaleString("ru")} UZB
+				</p>
 				<div className={classes.bottom_btns}>
 					<div
 						className={classes.see_details}

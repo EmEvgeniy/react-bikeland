@@ -8,7 +8,6 @@ import {
 import { changeCardStatus } from "../../../store/slices/cardDetailsSlice";
 import {
 	removeItemFromFavorite,
-	setFavoriteStatus,
 	setItemIntoFavorite,
 } from "../../../store/slices/favoriteSlice";
 import classes from "./cardDetailsContent.module.css";
@@ -25,11 +24,9 @@ const CardDetailsContent = ({ data }) => {
 
 	const handleFavoriteClick = () => {
 		setActive(!active);
-		dispatch(changeCardStatus(false));
 
 		if (!active) {
 			dispatch(setItemIntoFavorite(data));
-			dispatch(setFavoriteStatus(true));
 		} else {
 			dispatch(removeItemFromFavorite(data));
 		}
@@ -45,7 +42,9 @@ const CardDetailsContent = ({ data }) => {
 		<div className={classes.CardDetailsContent}>
 			<p className={classes.title}>{data.title}</p>
 			<span className={classes.name}>Bikeland.uz</span>
-			<p className={classes.price}>{data.uzb_price}</p>
+			<p className={classes.price}>
+				{data.uzb_price ? data.uzb_price.toLocaleString("ru") : null} UZB
+			</p>
 			<div className={classes.btns}>
 				<span className={classes.btn} onClick={handleOrderClick}>
 					Заказать
@@ -57,7 +56,6 @@ const CardDetailsContent = ({ data }) => {
 				</span>
 			</div>
 			<div className={classes.conf}>
-				<p>{data.title}</p>
 				<p>{data.description}</p>
 				{data.clearance && (
 					<p>

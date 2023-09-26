@@ -1,0 +1,18 @@
+.FormBanner {
+	border-radius: 15px;
+	background: #f0f0f0;
+	width: 100%;
+	
+}
+.FormBanner img {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+}
+
+.FormBanner p {
+	text-align: center;
+	padding: 20px 0;
+	font-size: 18px;
+	font-weight: 500;
+}

@@ -7,6 +7,7 @@ import Card from "../../../components/UI/card/Card";
 import FilterComp from "../../../components/UI/filterComp/FilterComp";
 import EquipmentsTitle from "../../../components/UI/EquipmentsTitle/EquipmentsTitle";
 import { debounce } from "lodash";
+import { Link } from "react-scroll";
 
 const categories = [
 	{ title: "МОТОЦИКЛЫ", link: "bikes", id: 1 },
@@ -27,6 +28,7 @@ const CategoryCatalog = ({ pathName }) => {
 	const [active, setActive] = useState(false);
 	const [title, setTitle] = useState("");
 	const value = useSelector((state) => state.category.value);
+	const value2 = useSelector((state) => state.filter.value);
 
 	const setActiveDebounced = debounce((status) => {
 		setActive(status);
@@ -56,6 +58,13 @@ const CategoryCatalog = ({ pathName }) => {
 								{active
 									? products.items
 											.filter((el) => el.category_id === value)
+											.filter((el) =>
+												value2 == "Новики"
+													? el.tag
+													: value2 == "Популярные"
+													? el.amount_views > 20
+													: el
+											)
 											.map((el, index) => (
 												<Card data={el} key={index} index={index} />
 											))
@@ -78,7 +87,23 @@ const CategoryCatalog = ({ pathName }) => {
 										Загрузить ещё
 									</span>
 								</div>
-							) : null}
+							) : (
+								<div className={classes.added}>
+									<p>
+										К сожалению товар не найден, возможно он остался на складе,
+										обратитесь в отдел продаж за подробной информацией.
+									</p>
+									<Link
+										to='form' // Указываем идентификатор элемента, к которому нужно прокрутиться
+										spy={true}
+										smooth={true}
+										offset={-70} // Опционально, смещение от верха, если необходимо
+										duration={500} // Опционально, длительность анимации прокрутки
+									>
+										<span>Оставить запрос</span>
+									</Link>
+								</div>
+							)}
 						</div>
 					)}
 				</div>

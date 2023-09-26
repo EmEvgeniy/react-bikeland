@@ -5,6 +5,7 @@ import { changeBurgerStatus } from "../../../store/slices/BurgerSlice";
 import { Link } from "react-router-dom";
 import { getCategoryId } from "../../../store/slices/categoryId";
 import { debounce } from "lodash";
+
 const navigationLinks = [
 	{ title: "МОТОЦИКЛЫ", link: "bikes", id: 1 },
 	{ title: "СКУТЕРЫ", link: "scooter", id: 2 },
@@ -33,7 +34,7 @@ const NavComp = () => {
 		if (link.id) {
 			dispatch(getCategoryId(link.id));
 		}
-	}, 300); // Задержка в миллисекундах (можете настроить по своему усмотрению)
+	}, 100); 
 
 	useEffect(() => {
 		document.body.classList.toggle("hold", burgerStatus);
