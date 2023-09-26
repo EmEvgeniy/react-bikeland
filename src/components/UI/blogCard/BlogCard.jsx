@@ -1,11 +1,13 @@
-import { memo, useState } from "react";
 import { useDispatch } from "react-redux";
-import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
-import classes from "./blogCard.module.scss";
-import { addBlogItem, changeBlogStatus } from "@/store/slices/blogCardSlice";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import classes from "./blogCard.module.css";
+import {
+	addBlogItem,
+	changeBlogStatus,
+} from "../../../store/slices/blogCardSlice";
 
-const BlogCard = ({ data, index }) => {
+const BlogCard = ({ data }) => {
 	const dispatch = useDispatch();
 
 	return (
@@ -15,7 +17,14 @@ const BlogCard = ({ data, index }) => {
 				dispatch(changeBlogStatus(true)) & dispatch(addBlogItem(data))
 			}>
 			<div className={classes.top}>
-				<Image src={data.img} alt='bike' height={0} width={0} priority />
+				<LazyLoadImage
+					src={data.img}
+					alt='bike'
+					height={"100%"}
+					width={"100%"}
+					effect='blur'
+					style={{ objectFit: "cover" }}
+				/>
 			</div>
 			<div className={classes.bottom}>
 				<p className={classes.title}>{data.title}</p>
@@ -25,4 +34,4 @@ const BlogCard = ({ data, index }) => {
 	);
 };
 
-export default memo(BlogCard);
+export default BlogCard;

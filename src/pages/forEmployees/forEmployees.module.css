@@ -1,0 +1,12 @@
+.ForEmployeesPage {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	text-align: center;
+	width: 100%;
+	padding: 40px 0;
+}
+.ForEmployeesPage h1 {
+	font-size: 30px;
+}

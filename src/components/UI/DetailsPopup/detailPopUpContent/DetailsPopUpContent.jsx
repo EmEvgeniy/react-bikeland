@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import DetailsPopUpContentSlider from "./detailsPopUpContentSlider/DetailsPopUpContentSlider";
 import TextContent from "./textContent/TextContent";
-import Image from "next/image";
 
 export default function DetailsPopUpContent() {
 	const value = useSelector((state) => state.cardDetails.value);

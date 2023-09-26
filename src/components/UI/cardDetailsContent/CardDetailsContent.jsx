@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import classes from "./cardDetailsContent.module.scss";
+import classes from "./cardDetailsContent.module.css";
 import { AiOutlineHeart, AiTwotoneHeart } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { setBasketStatus, setItemIntoBasket } from "@/store/slices/basketSlice";
-import { changeCardStatus } from "@/store/slices/cardDetailsSlice";
+import { setBasketStatus, setItemIntoBasket } from "../../../store/slices/basketSlice";
+import { changeCardStatus } from "../../../store/slices/cardDetailsSlice";
 import {
 	removeItemFromFavorite,
 	setFavoriteStatus,
 	setItemIntoFavorite,
-} from "@/store/slices/favoriteSlice";
+} from "../../../store/slices/favoriteSlice";
 
 const CardDetailsContent = ({ data }) => {
 	const [active, setActive] = useState(false);

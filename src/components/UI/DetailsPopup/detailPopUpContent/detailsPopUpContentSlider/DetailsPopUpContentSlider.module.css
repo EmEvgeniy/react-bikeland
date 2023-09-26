@@ -1,4 +1,6 @@
 /* DetailsPopUpContentSlider.module.css */
+
+/* Установим высоту для верхнего слайдера */
 .DetailsPopUpContentSlider {
 	display: flex;
 	flex-direction: column;
@@ -6,8 +8,10 @@
 	justify-content: flex-start;
 	gap: 20px;
 	width: 100%;
-	height: 500px;
+	height: 700px; /* Указываем желаемую высоту верхнего слайдера */
 }
+
+/* Изменяем стили слайдера */
 .swiper {
 	width: 100%;
 	height: 100%;
@@ -17,7 +21,8 @@
 	text-align: center;
 	font-size: 18px;
 	background: #fff;
-
+	width: 100%;
+	height: 100%; /* Устанавливаем высоту слайдов равной высоте верхнего слайдера */
 	/* Center slide text vertically */
 	display: flex;
 	justify-content: center;
@@ -26,27 +31,14 @@
 
 .swiper-slide img {
 	display: block;
-	width: 100%;
-	height: 100%;
+	width: auto; /* Убираем фиксированную ширину */
+	max-width: 100%; /* Устанавливаем максимальную ширину в пределах родительского контейнера */
+	height: 100%; /* Заполняем высоту слайдера */
 	object-fit: cover;
 }
 
-.swiper {
-	width: 100%;
-	height: 100%;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.swiper-slide {
-	background-size: cover;
-	background-position: center;
-	width: 100%;
-	height: 100%;
-}
-
+/* Остальные стили оставляем без изменений */
 .mySwiper2 {
-	/* height: 100%; */
 	width: 100%;
 }
 
@@ -71,4 +63,27 @@
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+}
+
+@media(max-width: 768px){
+	.DetailsPopUpContentSlider {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+		gap: 20px;
+		width: 100%;
+		height: 500px; /* Указываем желаемую высоту верхнего слайдера */
+	}
+}
+@media(max-width: 600px){
+	.DetailsPopUpContentSlider {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+		gap: 20px;
+		width: 100%;
+		height: 400px; /* Указываем желаемую высоту верхнего слайдера */
+	}
 }

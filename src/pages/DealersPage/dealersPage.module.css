@@ -1,0 +1,12 @@
+.DealersPage {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	justify-content: flex-start;
+	gap: 50px;
+	padding: 40px 0;
+}
+.DealersPage h1 {
+	font-size: 30px;
+}

@@ -3,11 +3,11 @@ import Container from "../../../components/container/Container";
 import classes from "./homeLocation.module.css";
 const CityInfo = lazy(() => import("./cardInfo/CardInfo"));
 
-export default function HomeLocation() {
+export default function HomeLocation({block}) {
 	return (
 		<section className={classes.HomeLocation}>
 			<Container>
-				<h3>НАШИ ШОУРУМЫ</h3>
+				{block && <h3>НАШИ ШОУРУМЫ</h3>}
 				<Suspense fallback={false}>
 					<CityInfo  />
 				</Suspense>

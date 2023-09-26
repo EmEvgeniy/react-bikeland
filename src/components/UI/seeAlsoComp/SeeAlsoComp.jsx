@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import Card from "../card/Card";
-import classes from "./seeAlsoComp.module.scss";
+import classes from "./seeAlsoComp.module.css";
 import { motion } from "framer-motion";
-import img from "@/public/bike.webp";
-import { Container } from "@/components/wrappers/container/Container";
 import axios from "axios";
+import Container from "../../container/Container";
 
 const SeeAlsoComp = () => {
 	const [list, setList] = useState([]);
@@ -26,7 +25,7 @@ const SeeAlsoComp = () => {
 					transition={{ delay: 0.3, duration: 0.3 }}
 					className={classes.SeeAlsoComp}>
 					<p className={classes.title}>Смотрите так же:</p>
-					<div className='inner'>
+					<div className={classes.inner}>
 						{list?.items
 							?.filter((el) => el.show_on_see_also && el.photos.length)
 							.slice(0, 4)

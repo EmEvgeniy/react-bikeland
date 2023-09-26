@@ -4,18 +4,25 @@ import classes from "./layout.module.css";
 import { Outlet } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import Footer from "../../components/footer/Footer";
-const CallBackComp = lazy(() =>
-	import("../../components/UI/callBackComp/CallBackComp")
-);
+
 const CallStickyComp = lazy(() =>
 	import("../../components/UI/callStickyComp/CallStickyComp")
 );
 const BracketStickyComp = lazy(() =>
 	import("../../components/UI/bracketStickyComp/BracketStickyComp")
 );
-const BasketPopup = lazy(() => import("../../components/UI/basketPopup/BasketPopup"))
-const FavoriteStickyComp = lazy(() => import("../../components/UI/favoriteStickyComp/FavoriteStickyComp"))
-const FavoritePopup = lazy(() => import("../../components/UI/favoritePopup/FavoritePopup"))
+const BasketPopup = lazy(() =>
+	import("../../components/UI/basketPopup/BasketPopup")
+);
+const FavoriteStickyComp = lazy(() =>
+	import("../../components/UI/favoriteStickyComp/FavoriteStickyComp")
+);
+const FavoritePopup = lazy(() =>
+	import("../../components/UI/favoritePopup/FavoritePopup")
+);
+const CardDetailPopup = lazy(() =>
+	import("../../components/UI/cardDetailPopup/CardDetailPopup")
+);
 const Layout = () => {
 	return (
 		<div className={classes.Layout}>
@@ -38,11 +45,11 @@ const Layout = () => {
 				</Suspense>
 				<Suspense fallback={false}>
 					<CallStickyComp />
-					<CallBackComp />
 					<BracketStickyComp />
-					<BasketPopup/>
-					<FavoritePopup/>
-					<FavoriteStickyComp/>
+					<BasketPopup />
+					<CardDetailPopup />
+					<FavoritePopup />
+					<FavoriteStickyComp />
 				</Suspense>
 			</main>
 			<Footer />

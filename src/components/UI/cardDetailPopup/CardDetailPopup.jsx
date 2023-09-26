@@ -1,14 +1,18 @@
-import classes from "./CardDetailPopup.module.scss";
+import classes from "./CardDetailPopup.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import CardDetailsContent from "../cardDetailsContent/CardDetailsContent";
 import { AiOutlineClose } from "react-icons/ai";
-import { addCardItem, changeCardStatus } from "@/store/slices/cardDetailsSlice";
+import {
+	addCardItem,
+	changeCardStatus,
+} from "../../../store/slices/cardDetailsSlice";
 import SeeAlsoComp from "../seeAlsoComp/SeeAlsoComp";
-import { Container } from "@/components/wrappers/container/Container";
 import DetailsPopUpContentSlider from "../DetailsPopup/detailPopUpContent/detailsPopUpContentSlider/DetailsPopUpContentSlider";
 import BuyComp from "../DetailsPopup/detailPopUpContent/buyComp/BuyComp";
-import Image from "next/image";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import Container from "../../container/Container";
 
 const CardDetailPopup = () => {
 	const status = useSelector((state) => state.card.status);
@@ -46,9 +50,10 @@ const CardDetailPopup = () => {
 						{value?.photos?.length > 1 ? (
 							<DetailsPopUpContentSlider items={value.photos} />
 						) : (
-							<Image
+							<LazyLoadImage
 								src={value?.photos?.length ? value?.photos[0]?.photo_url : ""}
 								alt=''
+								effect='blur'
 							/>
 						)}
 					</div>

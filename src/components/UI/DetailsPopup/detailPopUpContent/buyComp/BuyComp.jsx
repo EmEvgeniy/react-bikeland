@@ -1,9 +1,12 @@
 import classes from "./buyComp.module.css";
 import ReactIframe from "react-iframe";
 import { useDispatch, useSelector } from "react-redux";
-import { setBasketStatus, setItemIntoBasket } from "@/store/slices/basketSlice";
-import { changeCardStatus } from "@/store/slices/cardDetailsSlice";
-import { Container } from "@/components/wrappers/container/Container";
+import {
+	setBasketStatus,
+	setItemIntoBasket,
+} from "../../../../../store/slices/basketSlice";
+import { changeCardStatus } from "../../../../../store/slices/cardDetailsSlice";
+import Container from "../../../../container/Container";
 
 export default function BuyComp() {
 	const value = useSelector((state) => state.card.value);
@@ -39,6 +42,8 @@ export default function BuyComp() {
 							width='100%'
 							height='100%'
 							loading='lazy'
+							frameBorder={0}
+							styles={{ borderRadius: "15px" }}
 						/>
 					</div>
 				</div>

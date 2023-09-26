@@ -1,0 +1,68 @@
+/* .CategoryCatalog */
+.CategoryCatalog {
+  width: 100%;
+}
+
+.CategoryCatalog .inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 0px;
+}
+
+.CategoryCatalog h1 {
+  font-size: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .CategoryCatalog h1 {
+    font-size: 25px;
+  }
+}
+
+.CategoryCatalog .content {
+  width: 100%;
+}
+
+.CategoryCatalog .content_inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  align-items: center;
+  justify-items: center;
+  gap: 40px;
+  width: 100%;
+}
+
+.CategoryCatalog .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.CategoryCatalog .btn span {
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 110px;
+  background: #bb1d1e;
+  box-shadow: 0px 0px 30px 0px rgba(187, 29, 30, 0.3);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.CategoryCatalog .btn span:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.CategoryCatalog .btn span:active {
+  transform: scale(0.9, 0.9);
+}
+
+.CategoryCatalog .btn.active {
+  transform: scale(0);
+}

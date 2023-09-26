@@ -1,7 +1,7 @@
-import { Container } from "@/components/wrappers/container/Container";
 import classes from "./equipmentsTitle.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { changeTitle } from "@/store/slices/titleSlice";
+import { changeTitle } from "../../../store/slices/titleSlice";
+import Container from "../../container/Container";
 
 const list = ["Экипировки", "Аксессуары", "Запчасти"];
 

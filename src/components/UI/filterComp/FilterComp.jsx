@@ -1,9 +1,7 @@
 import classes from "./filterComp.module.css";
 import { useEffect, useRef, useState } from "react";
-
 import { useDispatch, useSelector } from "react-redux";
-import { addFilterValue } from "@/store/slices/filterSlice";
-import { Container } from "@/components/wrappers/container/Container";
+import { addFilterValue } from "../../../store/slices/filterSlice";
 
 const listOne = ["По умолчанию", "Новики", "Популярные"];
 

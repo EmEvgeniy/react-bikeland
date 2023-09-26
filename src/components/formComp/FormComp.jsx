@@ -8,7 +8,7 @@ const FormComp = () => {
 		<section className={classes.FormComp}>
 			<Container>
 				<div className={classes.inner}>
-					<h3>Обратный звонок</h3>
+					<h3>Обратный звонок</h3> 
 					<div className={classes.inner_content}>
 						<FormBanner />
 						<FormContent />

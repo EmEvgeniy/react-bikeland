@@ -1,0 +1,142 @@
+.CardDetailPopup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 20;
+  width: 100vw;
+  height: 100vh;
+  transform: scale(0);
+  opacity: 0;
+  overflow: auto;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 20px 0;
+}
+
+.CardDetailPopup.active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.CardDetailPopup .inner {
+  color: #000;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 20px;
+  padding: 40px 0;
+  position: relative;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.CardDetailPopup .inner.active {
+  opacity: 1;
+}
+
+.CardDetailPopup .inner .inner_item1 {
+  width: 100%;
+  height: 100%;
+}
+
+.CardDetailPopup .photototo {
+  width: 100%;
+}
+
+.CardDetailPopup .close {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: 0;
+  right: 0;
+  color: rgb(197, 36, 36);
+  border: 1px solid rgb(197, 36, 36);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.CardDetailPopup .close:hover {
+  background-color: rgb(197, 36, 36);
+  color: #fff;
+}
+
+.CardDetailPopup .buy {
+  background: #fff;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  margin: 40px 0;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.CardDetailPopup .buy .buy_inner {
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+}
+
+.CardDetailPopup .buy .buy_inner .buy_inner_title {
+  color: #bb1d1e;
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.CardDetailPopup .buy .buy_inner .buy_inner_subTitle {
+  font-size: 16px;
+}
+
+.CardDetailPopup .buy .buy_inner .buy_inner_btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.CardDetailPopup .buy .buy_inner .buy_inner_btns .buy_inner_btns_price {
+  font-weight: 700;
+}
+
+.CardDetailPopup .buy .buy_inner .buy_inner_btns .buy_inner_btns_btn {
+  border-radius: 10px;
+  background: #bb1d1e;
+  box-shadow: 0px 0px 15px 0px rgba(187, 29, 30, 0.25);
+  padding: 10px 15px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.CardDetailPopup .buy .buy_inner .buy_inner_btns .buy_inner_btns_btn:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.CardDetailPopup .buy .buy_inner .buy_inner_btns .buy_inner_btns_btn:active {
+  transform: scale(0.9, 0.9);
+}
+
+.CardDetailPopup .inner_item1 img {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 550px) {
+  .CardDetailPopup .inner {
+    color: #000;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 20px;
+  }
+}
