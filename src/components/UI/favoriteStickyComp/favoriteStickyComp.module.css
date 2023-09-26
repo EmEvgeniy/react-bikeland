@@ -17,22 +17,23 @@
   font-size: 40px;
   cursor: pointer;
 
-  &.active {
-    display: flex;
-  }
+}
 
-  .num {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    top: -5px;
-    font-size: 14px;
-    right: -5px;
-    background-color: #bb1d1e;
-    border-radius: 50%;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.FavoriteStickyComp.active {
+  display: flex;
+}
+
+.num {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: -5px;
+  font-size: 14px;
+  right: -5px;
+  background-color: #bb1d1e;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

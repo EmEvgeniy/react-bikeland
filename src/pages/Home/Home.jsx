@@ -1,3 +1,4 @@
+import FormComp from "../../components/formComp/FormComp";
 import CatalogContent from "./catalogContent/CatalogContent";
 import classes from "./home.module.css";
 import { HomeConfidence } from "./homeConfidence/HomeConfidence";
@@ -11,6 +12,7 @@ const Home = () => {
 			<CatalogContent />
 			<HomeVideoComp />
 			<HomeLocation />
+			<FormComp/>
 		</div>
 	);
 };

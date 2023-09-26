@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 import classes from "./favoritePopup.module.scss";
 import { AiOutlineClose } from "react-icons/ai";
-import Image from "next/image";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
 	removeItemFromFavorite,
 	setFavoriteStatus,
-} from "@/store/slices/favoriteSlice";
+} from "../../../store/slices/favoriteSlice";
 
 const FavoritePopup = () => {
 	const value = useSelector((state) => state.favorite.value);
@@ -42,11 +43,10 @@ const FavoritePopup = () => {
 				<div className={classes.list}>
 					{value.map((el, index) => (
 						<div className={classes.card} key={index}>
-							<Image
+							<LazyLoadImage
 								src={el.photos?.length ? el.photos[0]?.photo_url : ""}
 								alt='card'
-								width={200}
-								height={200}
+								effect='blur'
 							/>
 							<div className={classes.bottom}>
 								<p>

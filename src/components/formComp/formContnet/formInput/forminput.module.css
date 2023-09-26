@@ -1,0 +1,24 @@
+.FormInput {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	gap: 10px;
+	font-size: 18px;
+	margin: 10px 0;
+}
+.input {
+	border-radius: 15px;
+	background: #f0f0f0;
+	padding: 10px 20px;
+	outline: none;
+	font-size: 16px;
+	border: 1px solid transparent;
+}
+.input.fail {
+	border: 1px solid red;
+}
+.input.fail::placeholder {
+	color: red;
+}

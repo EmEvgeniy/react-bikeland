@@ -1,22 +1,22 @@
-import { Container } from "@/components/wrappers/container/Container";
 import classes from "./callPopup.module.scss";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { usePostFormMutation } from "@/store/middleWares/FormApi";
+import { usePostFormMutation } from "../../../store/middleWares/FormApi";
+import Container from "../../container/Container";
 
 const CallPopup = () => {
 	const [num, setNum] = useState("");
 	const [postFormMutation] = usePostFormMutation();
 	const callStatus = useSelector((state) => state.call.value);
-	const [active,setACtive] = useState(false)
+	const [active, setACtive] = useState(false);
 	const handleSubmit = async () => {
-		const data = { "phone_number": num };
-		
+		const data = { phone_number: num };
+
 		if (data && num) {
 			await postFormMutation(data).then((res) => console.log(res));
-			setACtive(false)
-		}else{
-			setACtive(true)
+			setACtive(false);
+		} else {
+			setACtive(true);
 		}
 	};
 	return (
@@ -36,10 +36,12 @@ const CallPopup = () => {
 					<input
 						type='text'
 						placeholder='+998 90 999 99 99'
-						className={active  ? `${classes.input} ${classes.fail}` : `${classes.input}`}
+						className={
+							active ? `${classes.input} ${classes.fail}` : `${classes.input}`
+						}
 						onChange={(e) => setNum(e.target.value)}
 					/>
-					<span className={classes.btn}  onClick={handleSubmit}>
+					<span className={classes.btn} onClick={handleSubmit}>
 						Заказать звонок
 					</span>
 				</div>

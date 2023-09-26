@@ -1,41 +1,44 @@
 .CallBackComp {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  width: 100%;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	width: 100%;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
 
-  .CallBackComp_btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-    gap: 10px;
-    padding: 10px 15px;
-    border-radius: 72px;
-    border: 0px solid #bb1d1e;
-    color: #bb1d1e;
-    background: #fff;
-    font-size: 16px;
-    font-weight: 500;
-    box-shadow: 0px 0px 35px 0px rgba(187, 29, 30, 0.37);
-    font-weight: 700;
+.CallBackComp_btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	white-space: nowrap;
+	gap: 10px;
+	padding: 10px 15px;
+	border-radius: 72px;
+	border: 0px solid #bb1d1e;
+	color: #bb1d1e;
+	background: #fff;
+	font-size: 16px;
+	font-weight: 500;
+	box-shadow: 0px 0px 35px 0px rgba(187, 29, 30, 0.37);
+	font-weight: 700;
+}
+@media (max-width: 1150px) {
+	.CallBackComp_btn span {
+		display: none;
+	}
+	.CallBackComp_btn {
+		padding: 7px;
+		border-radius: 50%;
+	}
+}
 
-    @media (max-width: 1150px) {
-      span {
-        display: none;
-      }
-      padding: 7px;
-      border-radius: 50%;
-    }
-
-    @media (max-width: 1060px) {
-      font-size: 14px;
-      padding: 7px 10px;
-      width: 35px;
-      height: 35px;
-    }
-  }
+@media (max-width: 1060px) {
+	.CallBackComp_btn {
+		font-size: 14px;
+		padding: 7px 10px;
+		width: 35px;
+		height: 35px;
+	}
 }

@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import classes from "./favoriteStickyComp.module.scss";
+import classes from "./favoriteStickyComp.module.css";
 import { AiTwotoneHeart } from "react-icons/ai";
-import { setFavoriteStatus } from "@/store/slices/favoriteSlice";
+import { setFavoriteStatus } from "../../../store/slices/favoriteSlice";
 import { motion } from "framer-motion";
 
 const FavoriteStickyComp = () => {

@@ -1,10 +1,7 @@
-import Forminput from "@/components/formComp/formContnet/formInput/Forminput";
-import classes from "./basketForm.module.scss";
+import Forminput from "../../../formComp/formContnet/formInput/Forminput";
+import classes from "./basketForm.module.css";
 import { useState } from "react";
-import {
-	usePostForm2Mutation,
-	usePostFormMutation,
-} from "@/store/middleWares/FormApi";
+import { usePostForm2Mutation } from "../../../../store/middleWares/FormApi";
 
 const BasketForm = () => {
 	const [name, setName] = useState("");

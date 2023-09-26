@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { motion } from "framer-motion";
-import { setBasketStatus } from "@/store/slices/basketSlice";
-import classes from "./bracketStickyComp.module.scss";
+import { setBasketStatus } from "../../../store/slices/basketSlice";
+import classes from "./bracketStickyComp.module.css";
 
 const BracketStickyComp = () => {
 	const dispatch = useDispatch();
