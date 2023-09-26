@@ -1,0 +1,42 @@
+.DetailsPopup {
+	width: 100vw;
+	height: 100vh;
+	overflow: auto;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -10;
+	opacity: 0;
+	background-color: #fff;
+	transform: scale(0);
+	transition: all 0.2s ease;
+}
+.DetailsPopup.active {
+	z-index: 10;
+	transform: scale(1);
+	opacity: 1;
+}
+.inner {
+	position: relative;
+	padding: 70px 0;
+	width: 100%;
+}
+.close {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	padding: 7px;
+	font-size: 20px;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	transition: all 0.2s ease;
+	border: 1px solid transparent;
+	border-radius: 50%;
+	cursor: pointer;
+}
+.close:hover {
+	color: #bb1d1e;
+	border: 1px solid #bb1d1e;
+	border-radius: 50%;
+}

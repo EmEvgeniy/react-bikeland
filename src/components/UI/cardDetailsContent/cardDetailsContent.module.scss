@@ -1,0 +1,97 @@
+.CardDetailsContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+  .conf{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  .title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #bb1d1e;
+  }
+
+  .name {
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .price {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .btns {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 10px 0;
+
+    .btn {
+      border-radius: 10px;
+      background: #bb1d1e;
+      box-shadow: 0px 0px 15px 0px rgba(187, 29, 30, 0.25);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 10px 20px;
+      user-select: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        transform: scale(1.05, 1.05);
+      }
+
+      &:active {
+        transform: scale(0.9, 0.9);
+      }
+    }
+  }
+
+  .icon {
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 7px;
+    border: 1px solid #ddd;
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #bb1d1e;
+    user-select: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &.active {
+      color: #bb1d1e;
+      fill: #bb1d1e;
+    }
+
+    &:hover {
+      transform: scale(1.05, 1.05);
+    }
+
+    &:active {
+      transform: scale(0.9, 0.9);
+    }
+  }
+
+  .conf {
+    text-wrap: balance;
+    line-height: 1.5;
+    font-size: 16px;
+    padding: 20px 0;
+    user-select: none;
+  }
+}

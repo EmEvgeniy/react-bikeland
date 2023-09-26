@@ -1,0 +1,25 @@
+.SocialMedia {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 40px;
+	margin: 0px 0 50px 0;
+}
+.SocialMedia img {
+	width: 40px;
+	height: 40px;
+}
+
+@media (max-width: 500px) {
+	.SocialMedia img {
+		width: 30px;
+		height: 30px;
+	}
+	.SocialMedia {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 20px;
+		margin: 0px 0 50px 0;
+	}
+}

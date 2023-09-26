@@ -1,0 +1,15 @@
+.SeeAlsoComp {
+	width: 100%;
+	padding: 40px 0;
+
+	.title {
+		font-size: 25px;
+		padding: 30px 0;
+		color: #bb1d1e;
+		font-weight: 600;
+
+		@media (max-width: 600px) {
+			text-align: center;
+		}
+	}
+}

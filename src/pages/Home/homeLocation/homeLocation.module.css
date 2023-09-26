@@ -1,0 +1,13 @@
+.HomeLocation {
+	width: 100%;
+}
+.HomeLocation h3 {
+	text-align: center;
+	font-size: 30px;
+	margin-bottom: 40px;
+}
+@media (max-width: 768px) {
+	.HomeLocation h3 {
+		font-size: 25px;
+	}
+}

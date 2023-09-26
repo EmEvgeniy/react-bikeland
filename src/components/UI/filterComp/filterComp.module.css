@@ -1,0 +1,51 @@
+.FilterComp {
+	padding: 20px 0;
+	width: 100%;
+}
+.inner {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+.FilterComp_title {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 10px;
+	color: #000;
+	font-size: 17px;
+	cursor: pointer;
+	position: relative;
+	max-width: 250px;
+}
+.btn {
+	padding: 7px;
+	font-size: 18px;
+	border-radius: 48px;
+	border: 1px solid #c8c8c8;
+	background: #fff;
+
+	width: 180px;
+	text-align: center;
+}
+.FilterComp_list {
+	position: absolute;
+	top: 100%;
+	right: 0;
+	z-index: 3;
+	width: 150px;
+	transform: scale(0);
+	border-radius: 10px;
+	background: #fff;
+	box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.25);
+	padding: 10px;
+	font-size: 16px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	gap: 10px;
+}
+.FilterComp_list.active {
+	transform: scale(1);
+}

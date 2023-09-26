@@ -1,0 +1,22 @@
+.FooterNav {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	width: 100%;
+	gap: 20px;
+	font-size: 14px;
+	font-weight: 500;
+	margin: 70px 0;
+	color: #fff;
+}
+
+
+@media(max-width: 600px){
+	.FooterNav{
+		display: grid;
+		grid-template-columns: 1fr .5fr;
+		align-items: center;
+		font-size: 12px;
+	}
+}

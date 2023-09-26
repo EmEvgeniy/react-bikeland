@@ -1,0 +1,35 @@
+.CityInfo {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	gap: 50px;
+	padding: 0 50px;
+}
+.inner_item {
+	display: grid;
+	grid-template-columns: 1fr;
+	align-items: center;
+	justify-items: flex-start;
+	text-wrap: balance;
+	width: 100%;
+	font-size: 14px;
+	gap: 10px;
+}
+
+.city {
+	padding: 0 20px 0 0;
+	color: #bb1d1e;
+	font-weight: 700;
+	font-size: 20px;
+}
+@media (max-width: 768px) {
+	.CityInfo {
+		flex-direction: column;
+	}
+}
+@media (max-width: 500px) {
+	.CityInfo {
+		flex-direction: column;
+		padding: 0 10px;
+	}
+}

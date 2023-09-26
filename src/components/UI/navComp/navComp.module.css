@@ -1,0 +1,48 @@
+.NavComp {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 10px;
+	font-size: 16px;
+	font-weight: 500;
+	color: #fff;
+	padding: 38px 0px 41px 0px;
+	transition: all 0.35s ease-out;
+}
+
+.NavComp li {
+	transition: all 0.2s ease;
+}
+
+.NavComp li:hover {
+	color: #bb1d1e;
+}
+
+@media (max-width: 768px) {
+	.NavComp {
+		position: absolute;
+		left: -200%;
+		top: 100%;
+		z-index: 20;
+		color: #000;
+		color: #fff;
+		width: 100%;
+		align-items: flex-start;
+		flex-direction: column;
+		gap: 17px;
+		opacity: 0;
+		padding: 51px 0px 49px 0px;
+		background: rgba(17, 17, 17, 0.8);
+		transition: all 0.35s ease-out;
+	}
+
+	.NavComp li {
+		padding: 0 0 0 17px;
+	}
+
+	.NavComp.active {
+		left: 0;
+		opacity: 1;
+	}
+}

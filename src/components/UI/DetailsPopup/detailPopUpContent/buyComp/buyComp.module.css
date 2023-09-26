@@ -1,0 +1,116 @@
+.buy {
+	background: #fff;
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+	width: 100%;
+	margin: 40px 0;
+}
+.inner_wrap {
+	padding: 40px 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(390px, 1fr));
+	align-items: center;
+	justify-items: center;
+	width: 100%;
+	gap: 20px;
+}
+.video {
+	/* width: 100%; */
+	/* max-width: 400px; */
+	display: flex;
+	align-items: center;
+	white-space: nowrap;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 50%;
+	height: 200px;
+	gap: 10px;
+}
+.buy .buy_inner {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	gap: 20px;
+}
+
+.buy .buy_inner .buy_inner_title {
+	color: #bb1d1e;
+	font-weight: 600;
+	font-size: 25px;
+}
+
+.buy .buy_inner .buy_inner_subTitle {
+	font-size: 16px;
+}
+
+.buy .buy_inner .buy_inner_btns {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 50%;
+}
+
+.buy .buy_inner .buy_inner_btns .buy_inner_btns_price {
+	font-weight: 700;
+}
+
+.buy .buy_inner .buy_inner_btns .buy_inner_btns_btn {
+	border-radius: 10px;
+	background: #bb1d1e;
+	box-shadow: 0px 0px 15px 0px rgba(187, 29, 30, 0.25);
+	padding: 10px 15px;
+	color: #fff;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.buy .buy_inner .buy_inner_btns .buy_inner_btns_btn:hover {
+	transform: scale(1.1, 1.1);
+}
+
+.buy .buy_inner .buy_inner_btns .buy_inner_btns_btn:active {
+	transform: scale(0.9, 0.9);
+}
+
+@media (max-width: 1024px) {
+	.video {
+		width: 100%;
+		height: 250px;
+		gap: 10px;
+		padding: 0 0px;
+	}
+	.buy .buy_inner {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+
+		gap: 20px;
+	}
+	.buy .buy_inner .buy_inner_btns {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 15px;
+		width: 100%;
+	}
+	.buy .buy_inner .buy_inner_title {
+		color: #bb1d1e;
+		font-weight: 600;
+		font-size: 20px;
+	}
+}
+@media (max-width: 500px) {
+	.inner_wrap {
+		padding: 40px 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+		align-items: center;
+		justify-items: center;
+		width: 100%;
+		gap: 20px;
+	}
+}

@@ -1,0 +1,25 @@
+.inner_cat {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	width: 100%;
+	gap: 20px;
+	padding: 10px 0;
+	flex-wrap: wrap;
+	padding: 0 0 40px 0;
+}
+.btn {
+	border-radius: 48px;
+	border: 1px solid #c8c8c8;
+	background: #fff;
+	font-size: 18px;
+	padding: 7px;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+.btn.active {
+	background-color: #bb1d1e;
+	border: 1px solid #bb1d1e;
+	color: #fff;
+}

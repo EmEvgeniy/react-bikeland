@@ -1,0 +1,20 @@
+.SocialLinks {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 10px;
+}
+.SocialLinks_item {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 7px;
+	background-color: #fff;
+	border-radius: 50%;
+	color: #000;
+}
+@media (max-width: 768px) {
+	.SocialLinks {
+		display: none;
+	}
+}
