@@ -58,10 +58,10 @@ const Card = ({ data }) => {
 			<div className={classes.top}>
 				<LazyLoadImage
 					src={
-						data?.photos?.length
+						data?.photos?.length && data?.photos[0]?.photo_url
 							? !active2
-								? data.photos[0].photo_url
-								: data.photos[1].photo_url
+								? data.photos[0]?.photo_url
+								: data.photos[1]?.photo_url
 							: ""
 					}
 					alt='bike'
@@ -85,7 +85,7 @@ const Card = ({ data }) => {
 					{data.description ? data?.description.slice(0, 90) : null}
 				</span>
 				<p className={classes.price}>
-					{data.uzb_price.toLocaleString("ru")} UZB
+					{data.uzb_price.toLocaleString("ru")} UZS
 				</p>
 				<div className={classes.bottom_btns}>
 					<div

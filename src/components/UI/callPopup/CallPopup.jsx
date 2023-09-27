@@ -4,29 +4,39 @@ import classes from "./callPopup.module.css";
 import { usePostFormMutation } from "../../../store/middleWares/FormApi";
 import Container from "../../container/Container";
 import { changeCallStatus } from "../../../store/slices/callSlice";
+import { changeThanksStatus } from "../../../store/slices/thanksSlice";
+import InputMask from "react-input-mask";
+import { usePostNotificationMutation } from "../../../store/middleWares/notificationApi";
 
 const CallPopup = () => {
 	const [num, setNum] = useState("");
+	const [id,setId] = useState(null)
 	const [postFormMutation] = usePostFormMutation();
 	const callStatus = useSelector((state) => state.call.value);
 	const dispatch = useDispatch();
-
+	const [postNotification] = usePostNotificationMutation();
 	const [active, setActive] = useState(false);
 
 	const handleSubmit = async () => {
 		const data = { phone_number: num };
-
+		const data2 = {
+			message: "Обратный звонок2",
+			order_id: 0,
+			feedback_id: id,
+			created_at: toString(new Date()),
+		};
 		if (num) {
-			await postFormMutation(data).then((res) => console.log(res));
+			await postFormMutation(data).then((res) =>
+				res.data.id ? dispatch(changeThanksStatus(true)) & setId(res.data.id) : null
+			);
+			if (id) {
+				await postNotification(data2);
+			}
 			setNum(""); // Clear input after submission
 			dispatch(changeCallStatus(false)); // Close the popup
 		} else {
 			setActive(true);
 		}
-	};
-
-	const handleClose = () => {
-		dispatch(changeCallStatus(false));
 	};
 
 	const handleInputChange = (e) => {
@@ -43,18 +53,16 @@ const CallPopup = () => {
 						<br />
 						наш специалист свяжется с вами в ближайшие 30 минут!
 					</p>
-					<input
+					<InputMask
 						type='text'
-						placeholder='+998 90 999 99 99'
-						className={`${classes.input} ${active && classes.fail}`}
+						mask='+\9\9\8\ 99 999 99 99'
+						placeholder='+99890 999 99 99'
 						value={num}
+						className={`${classes.input} ${active && classes.fail}`}
 						onChange={handleInputChange}
 					/>
 					<span className={classes.btn} onClick={handleSubmit}>
 						Заказать звонок
-					</span>
-					<span className={classes.closeBtn} onClick={handleClose}>
-						Закрыть
 					</span>
 				</div>
 			</Container>

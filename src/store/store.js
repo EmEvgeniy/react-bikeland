@@ -2,12 +2,14 @@ import BurgerReducer from "./slices/BurgerSlice";
 import searchReducer from "./slices/searchStatus";
 import favoriteReducer from "./slices/favoriteSlice";
 import basketReducer from "./slices/basketSlice";
+import thanksReducer from "./slices/thanksSlice";
 import callReducer from "./slices/callSlice";
 import cardReducer from "./slices/cardDetailsSlice";
 import blogReducer from "./slices/blogCardSlice";
 import filterReducer from "./slices/filterSlice";
 import titleReducer from "./slices/titleSlice";
 import categoryIdReducer from "./slices/categoryId";
+import { notificationApi } from "./middleWares/notificationApi";
 import { resourcesApi } from "./middleWares/resourcesApi";
 import { blogApi } from "./middleWares/blogApi";
 import { FormApi } from "./middleWares/FormApi";
@@ -30,8 +32,10 @@ const rootReducer = combineReducers({
 	[productsApi.reducerPath]: productsApi.reducer,
 	[resourcesApi.reducerPath]: resourcesApi.reducer,
 	[blogApi.reducerPath]: blogApi.reducer,
+	[notificationApi.reducerPath]: notificationApi.reducer,
 	burger: BurgerReducer,
 	search: searchReducer,
+	thanks: thanksReducer,
 	favorite: favoriteReducer,
 	basket: basketReducer,
 	call: callReducer,
@@ -55,6 +59,8 @@ const persistConfig = {
 		"categoryIdReducer",
 		"resourcesApi",
 		"blogApi",
+		"thanks",
+		"notificationApi",
 	],
 };
 
@@ -72,6 +78,7 @@ const store = configureStore({
 			productsApi.middleware,
 			resourcesApi.middleware,
 			blogApi.middleware,
+			notificationApi.middleware,
 		]),
 });
 

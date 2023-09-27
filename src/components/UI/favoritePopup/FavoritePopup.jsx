@@ -15,6 +15,12 @@ const FavoritePopup = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
+		if (!value.length) {
+			dispatch(setFavoriteStatus(false));
+		}
+	}, [value, dispatch]);
+
+	useEffect(() => {
 		if (status) {
 			document.querySelector("body").classList.add("hold");
 		} else {
@@ -51,7 +57,12 @@ const FavoritePopup = () => {
 							<div className={classes.bottom}>
 								<p>
 									<span className={classes.title}>{el.title}</span>
-									<span className={classes.price}>{el.uzb_price}</span>
+									<span className={classes.price}>
+										{el.uzb_price
+											? el.uzb_price.toLocaleString("ru")
+											: el.uzb_price}{" "}
+										UZS
+									</span>
 								</p>
 								<span
 									className={classes.close2}

@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addFilterValue } from "../../../store/slices/filterSlice";
 
-const listOne = ["По умолчанию", "Новики", "Популярные"];
+const listOne = ["По умолчанию", "Новинки", "Популярные"];
 
 const FilterComp = () => {
 	const [active, setActive] = useState(false);

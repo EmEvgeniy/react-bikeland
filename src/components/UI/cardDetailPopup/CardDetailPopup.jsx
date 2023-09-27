@@ -9,7 +9,7 @@ import {
 } from "../../../store/slices/cardDetailsSlice";
 import SeeAlsoComp from "../seeAlsoComp/SeeAlsoComp";
 import DetailsPopUpContentSlider from "../DetailsPopup/detailPopUpContent/detailsPopUpContentSlider/DetailsPopUpContentSlider";
-import BuyComp from "../DetailsPopup/detailPopUpContent/buyComp/BuyComp";
+// import BuyComp from "../DetailsPopup/detailPopUpContent/buyComp/BuyComp";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Container from "../../container/Container";
@@ -54,7 +54,7 @@ const CardDetailPopup = () => {
 								src={value?.photos?.length ? value?.photos[0]?.photo_url : ""}
 								alt=''
 								effect='blur'
-								loading="lazy"
+								loading='lazy'
 							/>
 						)}
 					</div>
@@ -64,7 +64,7 @@ const CardDetailPopup = () => {
 				</div>
 			</Container>
 			<SeeAlsoComp />
-			<BuyComp />
+			{/* <BuyComp /> */}
 		</div>
 	);
 };

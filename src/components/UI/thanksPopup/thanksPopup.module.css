@@ -1,0 +1,113 @@
+.ThanksPopup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: #00000082;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: -10;
+	transform: scale(0);
+	opacity: 0;
+	transition: all 0.35s ease;
+}
+.ThanksPopup.active {
+	transform: scale(1);
+	z-index: 10;
+	opacity: 1;
+}
+.inner {
+	width: 600px;
+	height: 100%;
+	min-height: 200px;
+	border-radius: 20px;
+	background: #fff;
+	box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.25);
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+}
+.inner p {
+	width: 100%;
+	font-size: 18px;
+	text-align: center;
+	line-height: 1.3;
+}
+.icon {
+	font-size: 80px;
+	color: #ff0000;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	animation: pulse 1.5s infinite;
+}
+.btn {
+	border-radius: 15px;
+	background: #fff;
+	box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
+	padding: 10px 20px;
+	color: #bb1d1e;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+.btn:hover {
+	background: #dbdbdb;
+}
+.btn:active {
+	transform: scale(0.9, 0.9);
+}
+@keyframes pulse {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.2);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@media(max-width:768px){
+	.inner {
+		width: 300px;
+		height: 100%;
+		min-height: 200px;
+		border-radius: 20px;
+		background: #fff;
+		box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.25);
+		padding: 20px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+	}
+	.inner p {
+		width: 100%;
+		font-size: 15px;
+		text-align: center;
+		line-height: 1.3;
+	}
+	.icon {
+		font-size: 50px;
+		color: #ff0000;
+		cursor: pointer;
+		transition: all 0.2s ease;
+		animation: pulse 1.5s infinite;
+	}
+	.btn {
+		border-radius: 15px;
+		background: #fff;
+		box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
+		padding: 5px 10px;
+		color: #bb1d1e;
+		cursor: pointer;
+		font-size: 16px;
+		transition: all 0.2s ease;
+	}
+}

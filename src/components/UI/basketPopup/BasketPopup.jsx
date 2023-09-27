@@ -69,7 +69,7 @@ const BasketPopup = () => {
 								<div className={classes.info}>
 									<p>Цена товара:</p>
 									<p style={{ fontWeight: 600 }}>
-										{el.uzb_price.toLocaleString("ru")} UZB
+										{el.uzb_price.toLocaleString("ru")} UZS
 									</p>
 								</div>
 								<div className={classes.counter}>

@@ -6,6 +6,7 @@ import FormComp from "../../components/formComp/FormComp";
 import { motion } from "framer-motion";
 const CategoryPage = () => {
 	const { title } = useParams();
+
 	return (
 		<motion.div
 			initial={{ opacity: 0 }}

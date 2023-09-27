@@ -2,10 +2,9 @@
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: flex-start;
 	gap: 20px;
-	
 }
 .main_btn {
 	background-color: #bb1d1e;
@@ -43,4 +42,22 @@
 	color: #fff;
 	padding: 10px 20px;
 	align-self: center;
+}
+.input {
+	border-radius: 7px;
+	background: #f0f0f0;
+	padding: 10px 20px;
+	outline: none;
+	font-size: 16px;
+	color: #000;
+	border: 1px solid transparent;
+}
+.input.fail {
+	border: 1px solid red;
+}
+.input.fail::placeholder {
+	color: red;
+}
+.ttt{
+	font-size: 18px;
 }

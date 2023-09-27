@@ -1,6 +1,7 @@
 /* .CategoryCatalog */
 .CategoryCatalog {
 	width: 100%;
+	min-height: 50vh;
 }
 
 .CategoryCatalog .inner {
@@ -31,7 +32,7 @@
 	text-align: center;
 	width: 70%;
 }
-.added span {
+.btns_btn {
 	border-radius: 7px;
 	background: #bb1d1e;
 	color: #fff;
@@ -40,10 +41,10 @@
 	user-select: none;
 	transition: all 0.2s ease;
 }
-.added span:hover {
+.btns_btn:hover {
 	transform: scale(1.05, 1.05);
 }
-.added span:active {
+.btns_btn:active {
 	transform: scale(0.9, 0.9);
 }
 @media (max-width: 600px) {

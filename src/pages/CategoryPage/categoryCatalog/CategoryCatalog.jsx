@@ -6,8 +6,8 @@ import Container from "../../../components/container/Container";
 import Card from "../../../components/UI/card/Card";
 import FilterComp from "../../../components/UI/filterComp/FilterComp";
 import EquipmentsTitle from "../../../components/UI/EquipmentsTitle/EquipmentsTitle";
-import { debounce } from "lodash";
 import { Link } from "react-scroll";
+import { motion } from "framer-motion";
 
 const categories = [
 	{ title: "МОТОЦИКЛЫ", link: "bikes", id: 1 },
@@ -27,12 +27,9 @@ const categories = [
 const CategoryCatalog = ({ pathName }) => {
 	const [active, setActive] = useState(false);
 	const [title, setTitle] = useState("");
+	const [prod, setProd] = useState([]);
 	const value = useSelector((state) => state.category.value);
 	const value2 = useSelector((state) => state.filter.value);
-
-	const setActiveDebounced = debounce((status) => {
-		setActive(status);
-	}, 300);
 
 	const { data: products = [], isSuccess } = useGetProductsQuery();
 	useEffect(() => {
@@ -42,6 +39,11 @@ const CategoryCatalog = ({ pathName }) => {
 			setTitle("");
 		}
 	}, [pathName]);
+	useEffect(() => {
+		if (value && products?.items?.length) {
+			setProd(products?.items?.filter((el) => el.category_id === value));
+		}
+	}, [value, products]);
 
 	return (
 		<section className={classes.CategoryCatalog}>
@@ -56,20 +58,25 @@ const CategoryCatalog = ({ pathName }) => {
 						<div className={classes.content}>
 							<div className={classes.content_inner}>
 								{active
-									? products.items
-											.filter((el) => el.category_id === value)
-											.filter((el) =>
+									? prod
+											?.filter((el) =>
 												value2 == "Новики"
 													? el.tag
 													: value2 == "Популярные"
-													? el.amount_views > 20
+													? el.amount_views > 10
 													: el
 											)
 											.map((el, index) => (
 												<Card data={el} key={index} index={index} />
 											))
-									: products.items
-											.filter((el) => el.category_id === value)
+									: prod
+											?.filter((el) =>
+												value2 == "Новики"
+													? el.tag
+													: value2 == "Популярные"
+													? el.amount_views > 10
+													: el
+											)
 											.slice(0, 8)
 											.map((el, index) => (
 												<Card data={el} key={index} index={index} />
@@ -83,12 +90,14 @@ const CategoryCatalog = ({ pathName }) => {
 											? `${classes.btn} ${classes.active}`
 											: `${classes.btn}`
 									}>
-									<span onClick={() => setActiveDebounced(true)}>
-										Загрузить ещё
-									</span>
+									<span onClick={() => setActive(true)}>Загрузить ещё</span>
 								</div>
 							) : (
-								<div className={classes.added}>
+								<motion.div
+									initial={{ scale: 0, opacity: 1 }}
+									animate={{ scale: 1, opacity: 1 }}
+									transition={{ delay: 0.1, duration: 0.5 }}
+									className={classes.added}>
 									<p>
 										К сожалению товар не найден, возможно он остался на складе,
 										обратитесь в отдел продаж за подробной информацией.
@@ -98,11 +107,11 @@ const CategoryCatalog = ({ pathName }) => {
 										spy={true}
 										smooth={true}
 										offset={-70} // Опционально, смещение от верха, если необходимо
-										duration={500} // Опционально, длительность анимации прокрутки
-									>
+										duration={500}
+										className={classes.btns_btn}>
 										<span>Оставить запрос</span>
 									</Link>
-								</div>
+								</motion.div>
 							)}
 						</div>
 					)}

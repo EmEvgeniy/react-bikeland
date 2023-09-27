@@ -43,7 +43,7 @@ const CardDetailsContent = ({ data }) => {
 			<p className={classes.title}>{data.title}</p>
 			<span className={classes.name}>Bikeland.uz</span>
 			<p className={classes.price}>
-				{data.uzb_price ? data.uzb_price.toLocaleString("ru") : null} UZB
+				{data.uzb_price ? data.uzb_price.toLocaleString("ru") : data.uzb_price} UZS
 			</p>
 			<div className={classes.btns}>
 				<span className={classes.btn} onClick={handleOrderClick}>

@@ -24,6 +24,9 @@ const FavoritePopup = lazy(() =>
 const CardDetailPopup = lazy(() =>
 	import("../../components/UI/cardDetailPopup/CardDetailPopup")
 );
+const ThanksPopup = lazy(() =>
+	import("../../components/UI/thanksPopup/ThanksPopup")
+);
 const Layout = () => {
 	const { pathname } = useLocation();
 
@@ -57,6 +60,7 @@ const Layout = () => {
 					<CardDetailPopup />
 					<FavoritePopup />
 					<FavoriteStickyComp />
+					<ThanksPopup />
 				</Suspense>
 			</main>
 			<Footer />

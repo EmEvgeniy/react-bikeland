@@ -4,18 +4,24 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setBasketStatus } from "../../../../store/slices/basketSlice";
 import axios from "axios";
+import { changeThanksStatus } from "../../../../store/slices/thanksSlice";
+import InputMask from "react-input-mask";
+import { usePostNotificationMutation } from "../../../../store/middleWares/notificationApi";
 
 const BasketForm = () => {
 	const [name, setName] = useState("");
 	const [num, setNum] = useState("");
+	const [id, setId] = useState(null);
 	const [city, setCity] = useState("");
 	const [active, setActive] = useState(false);
 	const [active2, setActive2] = useState(false);
 	const [active3, setActive3] = useState(false);
 	const value = useSelector((state) => state.basket.value);
+	const [postNotification] = usePostNotificationMutation();
 	const dispatch = useDispatch();
 
-	const handleSubmit = async () => {
+	const handleSubmit = async (event) => {
+		event.preventDefault()
 		const data = {
 			full_name: name,
 			phone_number: num,
@@ -25,7 +31,12 @@ const BasketForm = () => {
 			quantity: value[0]?.num,
 			created_at: toString(new Date()),
 		};
-
+		const data2 = {
+			message: "Заказ",
+			order_id: id,
+			feedback_id: 0,
+			created_at: toString(new Date()),
+		};
 		name ? setActive(false) : setActive(true);
 		num ? setActive2(false) : setActive2(true);
 		city ? setActive3(false) : setActive3(true);
@@ -39,9 +50,14 @@ const BasketForm = () => {
 				})
 				.then((res) =>
 					res.status === 200
-						? dispatch(setBasketStatus(false))
+						? dispatch(setBasketStatus(false)) &
+						  setId(res.data.id) &
+						  dispatch(changeThanksStatus(true))
 						: setActive(true) & setActive2(true) & setActive3(true)
 				);
+			if (id) {
+				await postNotification(data2);
+			}
 		}
 	};
 	return (
@@ -55,12 +71,16 @@ const BasketForm = () => {
 				active={active}
 				title='Как к вам обращаться?'
 			/>
-			<Forminput
-				placeholder={"На какой номер вам перезвонить?"}
-				title='Введите номер +998'
-				fn={setNum}
-				active={active2}
+			<span className={classes.ttt}>На какой номер вам перезвонить?</span>
+			<InputMask
+				type='text'
+				mask='+\9\9\8\ 99 999 99 99'
+				placeholder='+99890 999 99 99'
+				value={num}
+				className={`${classes.input} ${active2 && classes.fail}`}
+				onChange={(e) => setNum(e.target.value)}
 			/>
+
 			<Forminput
 				placeholder={"Ваш город или регион?"}
 				title='Название города, региона'

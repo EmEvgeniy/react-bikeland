@@ -3,10 +3,15 @@ import classes from "./formContent.module.css";
 import Forminput from "./formInput/Forminput";
 import FormCheckBox from "./formCheckBox/FormCheckBox";
 import { usePostFormMutation } from "../../../../store/middleWares/FormApi";
+import { changeThanksStatus } from "../../../../store/slices/thanksSlice";
+import { useDispatch } from "react-redux";
+import InputMask from "react-input-mask";
+import { usePostNotificationMutation } from "../../../../store/middleWares/notificationApi";
 
 const FormContent = () => {
 	const [name, setName] = useState("");
 	const [num, setNum] = useState("");
+	const[id,setId] = useState(null)
 	const [city, setCity] = useState("");
 	const [known, setKnown] = useState("");
 	const [about, setAbout] = useState("");
@@ -16,8 +21,11 @@ const FormContent = () => {
 	const [active4, setActive4] = useState(false);
 	const [active5, setActive5] = useState(false);
 	const [postForm] = usePostFormMutation();
+	const [postNotification] = usePostNotificationMutation()
+	const dispatch = useDispatch();
 
-	const handleSubmit = async () => {
+	const handleSubmit = async (event) => {
+		event.preventDefault()
 		const data = {
 			name: name,
 			phone_number: num,
@@ -25,13 +33,24 @@ const FormContent = () => {
 			known_from: known,
 			about: about,
 		};
+		const data2 = {
+			message: "Работа у нас",
+			order_id: 0,
+			feedback_id: id,
+			created_at: toString(new Date()),
+		};
 		name ? setActive(false) : setActive(true);
 		num ? setActive2(false) : setActive2(true);
 		city ? setActive3(false) : setActive3(true);
 		known ? setActive4(false) : setActive4(true);
 		about ? setActive5(false) : setActive5(true);
 		if (num && name && city && known && about) {
-			await postForm(data).then((res) => console.log(res));
+			await postForm(data).then((res) =>
+				res.data.id ? dispatch(changeThanksStatus(true)) & setId(res.data.id) : null
+			);
+			if (id) {
+				await postNotification(data2);
+			}
 		}
 	};
 
@@ -40,8 +59,8 @@ const FormContent = () => {
 		setActive(false);
 	}, []);
 
-	const handleSetNum = useCallback((value) => {
-		setNum(value);
+	const handleSetNum = useCallback((event) => {
+		setNum(event.target.value);
 		setActive2(false);
 	}, []);
 
@@ -64,11 +83,14 @@ const FormContent = () => {
 				active={active}
 				placeholder='Ваше имя'
 			/>
-			<Forminput
-				title={"На какой номер вам перезвонить?"}
-				fn={handleSetNum}
-				active={active2}
-				placeholder='Введите номер +998'
+			<span className={classes.ttt}>На какой номер вам перезвонить?</span>
+			<InputMask
+				type='text'
+				mask='+\9\9\8\ 99 999 99 99'
+				placeholder='+99890 999 99 99'
+				value={num}
+				className={`${classes.input} ${active2 && classes.fail}`}
+				onChange={handleSetNum}
 			/>
 			<Forminput
 				title={"Ваш город или регион?"}
